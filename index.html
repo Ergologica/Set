@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diario Davide Carenti</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Migliora le emoticon */
+    .rating label {
+      cursor: pointer;
+      transition: transform 0.2s, filter 0.2s;
+    }
+
+    .rating label input {
+      display: none;
+    }
+
+    .rating label span {
+      font-size: 2.5rem;
+      display: inline-block;
+      transition: transform 0.2s, filter 0.2s;
+    }
+
+    /* Hover Effect */
+    .rating label:hover span,
+    .rating label:focus span {
+      transform: scale(1.4);
+      filter: brightness(1.3);
+    }
+
+    /* Emoticon Selezionata */
+    .rating label input:checked + span {
+      transform: scale(1.5);
+      filter: drop-shadow(0 0 15px #ff8c00);
+    }
+
+    /* Stile container per migliorare la presentazione del form */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #f0f8ff;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Stile card per un aspetto più giovanile */
+    .card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Stile per i titoli delle domande */
+    .tab h5 {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    /* Stile per le attività checkbox e radio */
+    .activities label {
+      font-family: Arial, sans-serif;
+      font-size: 1.2rem;
+      display: block;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    /* Stile per il textarea */
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    /* Stile per il pulsante di invio */
+    button[type="submit"] {
+      background-color: #ff8c00;
+      color: #ffffff;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #ff6f00;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <img src="dav.jpg" alt="Logo" class="logo">
+      <h1>
+        <a href="index.html">Diario Personale Davide</a>
+      </h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card" id="formCard">
+      <form id="form" method="POST" action="https://example.com/submit">
+        <!-- Domanda 1 -->
+        <div class="tab">
+          <h5>Oggi è stata una bella giornata?</h5>
+          <div class="rating">
+            <label>
+              <input type="radio" name="domanda1" value="1">
+              <span>😞</span>
+            </label>
+            <label>
+              <input type="radio" name="domanda1" value="2">
+              <span>🙁</span>
+            </label>
+            <label>
+              <input type="radio" name="domanda1" value="3">
+              <span>😐</span>
+            </label>
+            <label>
+              <input type="radio" name="domanda1" value="4">
+              <span>🙂</span>
+            </label>
+            <label>
+              <input type="radio" name="domanda1" value="5">
+              <span>😃</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Domanda 2 -->
+        <div class="tab">
+          <h5>Sei soddisfatto della mattinata a scuola?</h5>
+          <div class="rating">
+            <label>
+              <input type="radio" name="domanda2" value="1">
+              <span>😞</span>
+            </label>
+            <label>
+              <input type="radio" name="domanda2" value="2">
+              <span>🙁</span>
+            </label>
+            <label>
+              <input type="radio" name="domanda2" value="3">
+              <span>😐</span>
+            </label>
+            <label>
+              <input type="radio" name="domanda2" value="4">
+              <span>🙂</span>
+            </label>
+            <label>
+              <input type="radio" name="domanda2" value="5">
+              <span>😃</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Domanda 3 -->
+        <div class="tab">
+          <h5>Quali attività hai svolto oggi?</h5>
+          <div class="activities">
+            <label><input type="checkbox" name="attivita" value="Igiene personale">Igiene personale</label>
+            <label><input type="checkbox" name="attivita" value="Mansioni domestiche">Mansioni domestiche</label>
+            <label><input type="checkbox" name="attivita" value="In giro con amici">In giro con amici</label>
+            <label><input type="checkbox" name="attivita" value="Uso dei mezzi pubblici">Uso dei mezzi pubblici</label>
+            <label><input type="checkbox" name="attivita" value="Shopping">Shopping</label>
+            <label><input type="checkbox" name="attivita" value="In giro con Leo">In giro con Leo</label>
+            <label><input type="checkbox" name="attivita" value="Xbox">Xbox</label>
+            <label><input type="checkbox" name="attivita" value="Film">Film</label>
+          </div>
+        </div>
+
+        <!-- Domanda 4 -->
+        <div class="tab">
+          <h5>Quale attività è stata più difficile?</h5>
+          <div class="activities">
+            <label><input type="radio" name="attivita_difficile" value="Igiene personale">Igiene personale</label>
+            <label><input type="radio" name="attivita_difficile" value="Mansioni domestiche">Mansioni domestiche</label>
+            <label><input type="radio" name="attivita_difficile" value="In giro con amici">In giro con amici</label>
+            <label><input type="radio" name="attivita_difficile" value="Uso dei mezzi pubblici">Uso dei mezzi pubblici</label>
+            <label><input type="radio" name="attivita_difficile" value="Shopping">Shopping</label>
+          </div>
+        </div>
+
+        <!-- Altre domande -->
+        <div class="tab">
+          <h5>Vuoi spiegare le difficoltà?</h5>
+          <textarea name="difficolta"></textarea>
+        </div>
+        <div class="tab">
+          <h5>C'è stato qualcosa di cui sei orgoglioso?</h5>
+          <textarea name="orgoglio"></textarea>
+        </div>
+        <div class="tab">
+          <h5>Hai affrontato difficoltà?</h5>
+          <textarea name="altre_difficolta"></textarea>
+        </div>
+        <div class="tab">
+          <h5>Suggerimenti per migliorare domani?</h5>
+          <textarea name="suggerimenti"></textarea>
+        </div>
+
+        <button type="submit">Invia</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      <a href="index.html">Diario Davide</a>
+    </p>
+  </footer>
+
+  <script src="scripts.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const ratingLabels = document.querySelectorAll(".rating label");
+
+      ratingLabels.forEach(label => {
+        label.addEventListener("click", () => {
+          // Rimuove la classe attiva da tutte le emoticon
+          ratingLabels.forEach(l => l.classList.remove("active"));
+
+          // Aggiunge la classe attiva alla label selezionata
+          label.classList.add("active");
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+
